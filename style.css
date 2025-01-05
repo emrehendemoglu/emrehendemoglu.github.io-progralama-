@@ -1,0 +1,234 @@
+/* Genel Ayarlar */
+body {
+    margin: 0; /* Sayfa kenar boşluklarını sıfırla */
+    font-family: Arial, sans-serif; /* Yazı tipini belirle */
+    background-color: #f0f0f0; /* Arka plan rengini açık gri yap */
+    display: flex; /* Flexbox düzeni kullan */
+    justify-content: center; /* İçeriği yatayda ortala */
+    align-items: center; /* İçeriği dikeyde ortala */
+    height: 100vh; /* Ekranın tamamını kapsa */
+    position: relative; /* Konumlandırma için relative kullan */
+}
+
+/* Oyun Ekranı */
+#gameContainer {
+    position: relative; /* İçerik yerleşimi için relative konumlandırma */
+    width: 400px; /* Oyun alanının genişliği */
+    height: 730px; /* Oyun alanının yüksekliği */
+    background-image: url('background.png'); /* Arka plan resmi */
+    background-size: 100% 100%; /* Arka planı alanı kaplayacak şekilde ayarla */
+    background-repeat: no-repeat; /* Arka planın tekrarlanmaması için */
+    background-position: center; /* Arka planı ortala */
+    border: 2px solid #000; /* Kenarlık ekle */
+    overflow: hidden; /* Oyun alanının dışına taşan içeriği gizle */
+}
+
+/* Oyuncu Arabası */
+#player {
+    position: absolute; /* Oyuncu arabasını konumlandırmak için absolute kullan */
+    bottom: 20px; /* Alt kısımdan 20px boşluk bırak */
+    width: 80px; /* Oyuncu arabasının genişliği */
+    height: 120px; /* Oyuncu arabasının yüksekliği */
+    left: 10px; /* Sol taraftan 10px boşluk bırak */
+}
+
+#player-car {
+    width: 100%; /* Arabayı kapsayacak şekilde genişlet */
+    height: 100%; /* Arabayı kapsayacak şekilde yüksekliğini ayarla */
+    object-fit: contain; /* Resmi orantılı şekilde sığdır */
+}
+
+/* Başlangıç Ekranı */
+#startScreen {
+    position: absolute; /* Başlangıç ekranını absolute konumlandır */
+    top: 0; /* Üstten sıfır mesafe */
+    left: 0; /* Soldan sıfır mesafe */
+    width: 100%; /* Ekranın tamamını kapla */
+    height: 100%; /* Ekranın tamamını kapla */
+    background-color: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz arka plan */
+    text-align: center; /* Metni ortala */
+    display: flex; /* Flexbox kullan */
+    flex-direction: column; /* Elemanları dikey sırada yerleştir */
+    justify-content: center; /* İçeriği dikeyde ortala */
+    align-items: center; /* İçeriği yatayda ortala */
+}
+
+#startScreen h1 {
+    margin-top: 5px; /* Başlık üstündeki boşluk */
+    font-size: 40px; /* Başlık font büyüklüğü */
+    color: #333; /* Başlık rengi */
+}
+
+/* Resim Alanı */
+#imageContainer {
+    display: flex; /* Flexbox düzeni kullan */
+    justify-content: center; /* Resimleri ortala */
+    gap: 20px; /* Resimler arasında 20px boşluk bırak */
+    margin-top: 5px; /* Üstten 5px boşluk bırak */
+    margin-bottom: 15px; /* Alttan 15px boşluk bırak */
+}
+
+.game-image {
+    width: 100px; /* Resmin genişliği */
+    height: 100px; /* Resmin yüksekliği */
+    object-fit: cover; /* Resmi orantılı şekilde sığdır */
+    border: 2px solid #333; /* Resme kenarlık ekle */
+    border-radius: 10px; /* Kenarlara yuvarlaklık ekle */
+}
+
+/* Şoför Bilgi Panosu */
+#infoBoard {
+    background-color: #dcdcdc; /* Arka plan rengini açık gri yap */
+    padding: 20px; /* İç boşluk */
+    border-radius: 15px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gölgelendirme efekti */
+    text-align: left; /* Metni sola hizala */
+    width: 18%; /* Panonun genişliği */
+    margin: 20px 0; /* Üst ve alt boşluk */
+}
+
+#infoBoard h2 {
+    margin-top: 0; /* Başlık üstündeki boşluğu kaldır */
+    color: #333; /* Başlık rengi */
+    text-align: center; /* Başlık metnini ortala */
+}
+
+#infoBoard label {
+    font-size: 16px; /* Etiket font büyüklüğü */
+    font-weight: bold; /* Etiketleri kalın yap */
+}
+
+#infoBoard input {
+    width: 50%; /* Input genişliği */
+    padding: 8px; /* İç boşluk */
+    margin-top: 5px; /* Üst boşluk */
+    margin-bottom: 10px; /* Alt boşluk */
+    border: 1px solid #aaa; /* Kenarlık */
+    border-radius: 5px; /* Yuvarlatılmış kenarlar */
+    font-size: 14px; /* Yazı büyüklüğü */
+}
+
+/* Skor Göstergesi */
+#scoreDisplay {
+    position: fixed; /* Sabit konumlandır */
+    top: 10px; /* Üstten 10px mesafe */
+    right: 10px; /* Sağdan 10px mesafe */
+    font-size: 24px; /* Font büyüklüğü */
+    color: black; /* Yazı rengi */
+}
+
+/* Kaza Ekranı */
+#crashScreen {
+    position: absolute; /* Kaza ekranını absolute konumlandır */
+    top: 0; /* Üstten sıfır mesafe */
+    left: 0; /* Soldan sıfır mesafe */
+    width: 100%; /* Ekranın tamamını kapla */
+    height: 100%; /* Ekranın tamamını kapla */
+    background-color: rgba(255, 255, 255, 0.9); /* Hafif şeffaf beyaz arka plan */
+    text-align: center; /* Metni ortala */
+    display: none; /* Başlangıçta gizli tut */
+    flex-direction: column; /* Elemanları dikey sırada yerleştir */
+    justify-content: center; /* İçeriği dikeyde ortala */
+    align-items: center; /* İçeriği yatayda ortala */
+}
+
+#crashAlert {
+    text-align: center; /* Kaza mesajını ortala */
+}
+
+table {
+    margin: 0 auto; /* Tabloyu yatayda ortala */
+    border-collapse: collapse; /* Kenarlıkların birleşmesini sağla */
+    background-color: #f0f0f0;  /* Tablo arka plan rengi */
+    border: 2px solid black;   /* Tablo kenarlığı */
+    padding: 20px; /* İç boşluk */
+}
+
+td {
+    padding: 15px; /* Hücre içi boşluk */
+    font-size: 20px; /* Yazı büyüklüğü */
+    text-align: center; /* Metni ortala */
+}
+
+/* Başlık Animasyonu */
+#crashTitle {
+    font-size: 40px; /* Başlık font büyüklüğü */
+    color: red; /* Başlık rengi */
+    animation: flashRedBlue 1s linear infinite; /* Animasyon ekle */
+}
+
+/* Başlık animasyonu (Kırmızı ve Mavi geçişi) */
+@keyframes flashRedBlue {
+    0% {
+        color: red; /* Başlangıç rengi kırmızı */
+    }
+    50% {
+        color: blue; /* Orta renk mavi */
+    }
+    100% {
+        color: red; /* Son renk kırmızı */
+    }
+}
+
+/* Skor ve mesajlar */
+#crashMessage, #finalScore {
+    padding: 10px; /* İç boşluk */
+    font-weight: bold; /* Kalın yazı */
+}
+
+/* Butonlar için genel stil */
+button {
+    padding: 10px 20px; /* İç boşluk */
+    font-size: 16px; /* Font büyüklüğü */
+    margin-top: 10px; /* Üst boşluk */
+    cursor: pointer; /* Fare imlecini pointer yap */
+}
+
+/* Butonlar için özel stil */
+#moveLeftButton, #moveRightButton {
+    position: fixed; /* Sabit konumlandır */
+    bottom: 40px; /* Alt taraftan 40px mesafe */
+    padding: 10px 20px; /* İç boşluk */
+    font-size: 16px; /* Font büyüklüğü */
+    cursor: pointer; /* Fare imlecini pointer yap */
+    z-index: 20; /* Z-index ile ön planda tut */
+}
+
+/* Sol ve sağ butonların konumlandırılması */
+#moveLeftButton {
+    left: 800px; /* Sol taraftan 800px mesafe */
+}
+
+#moveRightButton {
+    right: 800px; /* Sağ taraftan 800px mesafe */
+}
+
+/* Medya sorgusu ile telefon modunda butonları daha küçük ve uyumlu yapma */
+@media (max-width: 768px) {
+    #gameContainer {
+        width: 400px; /* Ekran boyutuna göre oyun alanı genişliği */
+        height: 730px; /* Oyun alanının yüksekliği */
+    }
+
+    #moveLeftButton, #moveRightButton {
+        padding: 8px 15px; /* Buton iç boşlukları */
+        font-size: 14px; /* Font büyüklüğü */
+        bottom: 20px; /* Alt taraftan 20px mesafe */
+    }
+
+    #moveLeftButton {
+        left: 20px; /* Sol buton konumu */
+    }
+
+    #moveRightButton {
+        right: 20px; /* Sağ buton konumu */
+    }
+
+    #infoBoard {
+        width: 40%; /* Bilgi panosunun genişliği */
+    }
+
+    #scoreDisplay {
+        font-size: 20px; /* Skor font büyüklüğü */
+    }
+}
